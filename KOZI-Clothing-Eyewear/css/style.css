@@ -3128,3 +3128,55 @@ figure.photo img {
 .count { margin: 0 0 18px; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
 .notice { padding: 16px; border-left: 3px solid var(--red); background: #fff; }
 a:focus-visible, button:focus-visible, .chip:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* ---------- Mobile fixes ---------- */
+html, body { overflow-x: hidden; }
+img, video, iframe { max-width: 100%; }
+
+@media (max-width: 800px) {
+  section { padding: 56px 5vw; }
+
+  /* Header: logo + bag on row 1, menu scrolls sideways on row 2 */
+  header { gap: 8px 12px; padding: 8px 5vw; }
+  .logo { font-size: 1.3rem; }
+  #cartBtn { margin-left: auto; padding: 5px 12px; }
+  nav {
+    order: 3; width: 100%; margin-left: 0;
+    flex-wrap: nowrap; gap: 18px;
+    overflow-x: auto; white-space: nowrap;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+
+  /* Hero */
+  .hero { min-height: auto; padding-top: 40px; padding-bottom: 40px; }
+  .hr { max-width: 340px; margin: 0 auto; }
+
+  /* Headings */
+  h2 { font-size: clamp(2.4rem, 12vw, 4rem); }
+
+  /* Grids: two columns of cards is too tight, use one */
+  .grid, .quad, .feat { grid-template-columns: 1fr; }
+  .grid { gap: 28px; }
+
+  /* Countdown: 2 x 2 */
+  .cd { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .cd div { min-width: 0; font-size: 2.6rem; }
+
+  /* Social tiles and email mockup */
+  .ig { max-width: 100%; }
+  .ig > div { font-size: 1rem !important; padding: 6px; }
+  .mail .b { padding: 20px; }
+  .mail .b h3 { font-size: 1.9rem !important; }
+
+  /* Contact table scrolls instead of squeezing */
+  #custTable { display: block; overflow-x: auto; }
+
+  /* Footer in one column */
+  footer { grid-template-columns: 1fr; padding: 40px 5vw 20px; }
+}
+
+@media (max-width: 480px) {
+  .banner-cap h3 { font-size: 2.2rem; }
+  .tools input { min-width: 0; width: 100%; }
+}
